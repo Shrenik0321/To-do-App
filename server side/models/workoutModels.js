@@ -12,7 +12,8 @@ let con = mysql
 // Scan DB
 async function displayDb() {
   let sql = `SELECT id,workout, loads, reps FROM workout_tb`;
-  let rows = await con.query(sql);
+  // An array of arrays of objects will be returned. The first array of objects within the array contains the read data from the db and the second array contains meta data.
+  const [rows] = await con.query(sql);
   return rows;
 }
 
