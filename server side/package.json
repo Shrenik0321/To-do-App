@@ -1,7 +1,6 @@
 {
   "name": "server-side",
   "version": "1.0.0",
-  "type": "module",
   "description": "First MERN project.",
   "main": "server.js",
   "scripts": {
