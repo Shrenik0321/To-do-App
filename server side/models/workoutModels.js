@@ -12,7 +12,7 @@ let con = mysql
 // Scan DB
 async function displayDb() {
   let sql = `SELECT id,workout, loads, reps FROM workout_tb`;
-  const [rows] = await con.query(sql);
+  let rows = await con.query(sql);
   return rows;
 }
 
