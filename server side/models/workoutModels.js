@@ -11,8 +11,9 @@ let con = mysql
 
 // Scan DB
 async function displayDb() {
+  const rows = [];
   let sql = `SELECT id,workout, loads, reps FROM workout_tb`;
-  const [rows] = await con.query(sql);
+  rows = await con.query(sql);
   return rows;
 }
 
