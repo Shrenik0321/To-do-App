@@ -1,90 +1,283 @@
 /* google font */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;800&family=VT323&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;800&family=VT323&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 /* layout */
 :root {
-  --primary: #1aac83;
+  --primary: #f37a24;
   --error: #e7195a;
 }
+
 body {
-  background: #f1f1f1;
+  height: 150%;
   margin: 0;
+  padding: 0;
+  background: linear-gradient(to right, #312e81, #18181b);
+  background-repeat: no-repeat;
   font-family: "Poppins";
 }
-header {
-  background: #fff;
+
+/* Navigation bar */
+.navbar {
+  position: relative;
+  background-color: black;
+  width: 100%;
+  height: 120px;
+  margin-bottom: 80px;
 }
-header .container {
+
+.nav-title {
+  position: absolute;
+  color: #f37a24;
+  top: 15px;
+  left: 100px;
+}
+
+.nav-content {
+  position: absolute;
+  top: 45px;
+  right: 100px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.nav-task > span {
+  font-size: 1.25rem;
+  color: white;
+  margin-right: 40px;
+  padding: 10px;
+}
+
+.nav-task :hover {
+  background-color: #f37a24;
+  text-decoration: none;
+}
+
+.nav-signnup > span {
+  font-size: 1.25rem;
+  color: white;
+  margin-right: 40px;
+  padding: 10px;
+}
+
+.nav-signnup :hover {
+  background-color: #f37a24;
+  text-decoration: none;
+}
+
+.nav-logout > span {
+  font-size: 1.25rem;
+  color: white;
+  padding: 10px;
+  margin-right: 40px;
+}
+
+/* header .navbar {
+  position: absolute;
+  font-size: 1.5rem;
+  color: #f37a24;
   max-width: 1400px;
   margin: 0 auto;
   padding: 10px 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+} */
+
+.right-nav {
+  display: inline-block;
+  display: flex;
+  align-items: center;
+  margin-right: 5px;
 }
+
+.sign {
+  margin-right: 35px;
+  color: white;
+}
+
 header a {
-  color: #333;
+  color: #f37a24;
   text-decoration: none;
 }
-.pages{
+.pages {
   max-width: 1400px;
   padding: 20px;
   margin: 0 auto;
 }
 
 /* homepage */
-.home {
-  display: grid;
-  grid-template-columns: 3fr 1fr;
-  gap: 100px;
+.front {
 }
-.workout-details {
-  background: #fff;
-  border-radius: 4px;
-  margin: 20px auto;
-  padding: 20px;
-  /* position: relative; */
-  box-shadow: 2px 2px 5px rgba(0,0,0,0.05);
-}
-.workout-details h4 {
-  margin: 0 0 10px 0;
-  font-size: 1.2em;
-  color: var(--primary);
-}
-.workout-details p {
-  margin: 0;
-  font-size: 0.9em;
-  color: #555;
-}
-.workout-details span {
+
+.main-text {
   position: absolute;
+  right: 50%;
+  -webkit-text-stroke: 0.5px #1b1c1f;
+}
+
+.main-text > span {
+  color: white;
+  font-size: 3rem;
+}
+
+.photo {
+  position: absolute;
+  object-fit: cover;
+  left: 28%;
+}
+
+/* Workour Details */
+
+.workout-details {
+  position: relative;
+  display: inline-block;
+  border-style: solid;
+  border-color: white;
+  width: 80%;
+  height: 135px;
+  padding: 40px;
+  top: 70px;
+  margin-top: 15px;
+}
+
+.workout-details > span {
+  position: absolute;
+  color: #f37a24;
+  right: 150px;
   top: 20px;
-  right: 20px;
-  cursor: pointer;
-  background: #f1f1f1;
-  padding: 6px;
-  border-radius: 50%;
-  color: #333;
+}
+
+.logo {
+  position: absolute;
+  left: 40px;
+  bottom: 2px;
+}
+
+.detail-title {
+  position: absolute;
+  color: white;
+  left: 200px;
+  bottom: 65px;
+  font-size: 2rem;
+  margin-left: 10px;
+}
+
+.detail-load {
+  position: absolute;
+  color: white;
+  left: 200px;
+  bottom: 35px;
+  font-size: 1.5rem;
+  margin-left: 10px;
+}
+
+.detail-reps {
+  position: absolute;
+  color: white;
+  left: 200px;
+  bottom: 10px;
+  font-size: 1.05rem;
+  margin-left: 10px;
+}
+
+.edit {
+  position: absolute;
+  right: 110px;
+  bottom: 40px;
+}
+
+.del {
+  position: absolute;
+  right: 65px;
+  bottom: 40px;
+}
+
+.check-box > input {
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  right: 18px;
+  bottom: 21px;
+}
+
+.current-tasks {
+  position: relative;
+  display: inline-block;
+  height: 50px;
+  border-style: solid;
+  border-color: #f37a24;
+  border-radius: 35px;
+  margin-top: 15px;
+  width: 90%;
+}
+
+.current-tasks h2 {
+  position: absolute;
+  display: inline-block;
+  color: white;
+  left: 10px;
+  top: 1px;
+  margin: 0;
+}
+
+.completed-tasks {
+  position: relative;
+  display: inline-block;
+  height: 50px;
+  border-style: solid;
+  border-color: #f37a24;
+  border-radius: 35px;
+  margin-top: 95px;
+  width: 90%;
+}
+
+.completed-tasks h2 {
+  position: absolute;
+  display: inline-block;
+  color: white;
+  left: 10px;
+  top: 1px;
+  margin: 0;
 }
 
 .card {
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  max-height: 405px;
   transition: 0.3s;
-  padding:5px;
+  padding: 5px;
+  color: #f37a24;
+  border-style: solid;
 }
 
-.card:hover {
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+/* .card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+} */
+
+.form-container {
+  padding: 2px 2px 0px 2px;
 }
 
-.container {
-  padding: 2px 16px;
+/* Workout form */
+.workout-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
 }
 
-/* new workout form */
-label, input {
-  display: block;
+.card {
+  width: 700px;
+  height: 700px;
+  padding: 15px;
 }
+
+.w-form-label {
+  font-size: 1.02rem;
+}
+
 input {
   padding: 10px;
   margin-top: 10px;
@@ -94,7 +287,9 @@ input {
   border-radius: 4px;
   box-sizing: border-box;
 }
+
 form button {
+  margin-top: 10px;
   background: var(--primary);
   border: 0;
   color: #fff;
@@ -103,6 +298,7 @@ form button {
   border-radius: 4px;
   cursor: pointer;
 }
+
 div.error {
   padding: 10px;
   background: #ffefef;
@@ -110,4 +306,157 @@ div.error {
   color: var(--error);
   border-radius: 4px;
   margin: 20px 0;
+}
+
+/* login */
+.login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+  height: 100vh;
+}
+
+.login .card {
+  text-align: left;
+  height: 40rem;
+  width: 30rem;
+}
+
+.login .card form {
+  padding: 10px;
+}
+
+.login .card form input {
+  margin-bottom: 15px;
+}
+
+.login .card form button {
+  align-items: center;
+  display: grid;
+  justify-content: center;
+  width: 80%;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.login .card span {
+  text-align: center;
+}
+
+.login .card .form-footer {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.login .card .form-footer hr {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* register */
+.register {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.register .card {
+  text-align: left;
+  height: 40rem;
+  width: 30rem;
+}
+
+.register .card form {
+  padding: 10px;
+}
+
+.register .card form input {
+  margin-bottom: 15px;
+}
+
+.register .card form button {
+  align-items: center;
+  display: grid;
+  justify-content: center;
+  width: 80%;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.register .card span {
+  text-align: center;
+}
+
+.register .card .form-footer {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.register .card .form-footer hr {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.errorMsg {
+  text-align: center;
+  color: red;
+}
+
+/* Loader */
+.loader {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+}
+
+.load-logo {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  right: 235px;
+}
+
+.hand-loader {
+  position: relative;
+  bottom: 165px;
+}
+
+.animate__fadeInUp {
+  font-size: 70px;
+  color: #f37a24;
+  position: relative;
+  bottom: 150px;
+}
+
+img {
+  max-height: 100%;
+  max-width: 100%;
+}
+
+.main {
+  position: relative;
+}
+
+.main-text > h1 {
+  position: absolute;
+  color: white;
+  font-size: 10rem;
+  right: 450px;
+}
+
+.main-text > p {
+  position: absolute;
+  color: white;
+  right: 450px;
 }

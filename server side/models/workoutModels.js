@@ -1,43 +1,32 @@
-const mysql = require("mysql2");
+const mysql = require("mysql");
 // Create DB Connection
-let con = mysql
-  .createConnection({
-    host: "localhost",
-    user: "root",
-    password: "",
-    database: "mern_db",
-  })
-  .promise();
+let con = mysql.createConnection({
+  host: "localhost",
+  user: "root",
+  password: "",
+  database: "mern_db",
+});
 
-// Scan DB
-async function displayDb() {
-  let sql = `SELECT id,workout, loads, reps FROM workout_tb`;
-  // An array of arrays of objects will be returned. The first array of objects within the array contains the read data from the db and the second array contains meta data.
-  const [rows] = await con.query(sql);
-  return rows;
-}
+// async function getLogin(username, password) {
+//   let sql =
+//     "SELECT username,password FROM login_tb WHERE username=? AND password=? ";
+//   try {
+//     const [rows] = await con.query(sql, [username, password]);
+//     return rows;
+//   } catch (err) {
+//     return err;
+//   }
+// }
 
-// Add workout to DB
-async function addDb(workout, load, reps) {
-  let sql = "INSERT INTO workout_tb (workout, loads, reps) VALUES (?,?,?)";
-  con.query(sql, [workout, load, reps], (err, result) => {
-    if (err) {
-      return err;
-    } else {
-      return "Values Inserted";
-    }
-  });
-}
+// async function addLogin(username, password) {
+//   let sql = "INSERT INTO login_tb (username, password) VALUES (?,?)";
+//   await con.query(sql, [username, password], (err, data) => {
+//     if (err) {
+//       return err;
+//     } else {
+//       return "Register Successful!";
+//     }
+//   });
+// }
 
-async function delDb(workoutId) {
-  let sql = "DELETE FROM workout_tb WHERE id=?";
-  con.query(sql, [workoutId], (err, data) => {
-    if (err) {
-      return err;
-    } else {
-      return "Workout Deleted";
-    }
-  });
-}
-
-module.exports = { displayDb, addDb, delDb };
+module.exports = con;
