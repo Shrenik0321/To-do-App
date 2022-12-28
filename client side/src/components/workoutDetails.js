@@ -3,6 +3,8 @@ import logo from "../images/muscle (3).png";
 import deleteBtn from "../images/delete.png";
 import editBtn from "../images/edit (2).png";
 
+let author = sessionStorage.getItem("Author");
+
 const WorkoutDetails = ({ workout, setEditTask, setEditID, setToggle }) => {
   const handleEdit = async (e, id) => {
     if (e.target.click) {
@@ -40,7 +42,7 @@ const WorkoutDetails = ({ workout, setEditTask, setEditID, setToggle }) => {
 
   return (
     <div className="workout-details bg-slate-900 rounded-md">
-      <span>Author:</span>
+      <span>Author: {author}</span>
       <div className="logo">
         <img src={logo} alt="" />
       </div>
@@ -63,7 +65,7 @@ const WorkoutDetails = ({ workout, setEditTask, setEditID, setToggle }) => {
         <img src={editBtn} alt="" onClick={(e) => handleEdit(e, workout.id)} />
       </div>
       <div className="del cursor-pointer">
-        <img src={deleteBtn} alt="" onClick={handleDelete} />
+        <img src={deleteBtn} alt="" onClick={() => handleDelete(workout.id)} />
       </div>
       <div className="check-box">
         <input

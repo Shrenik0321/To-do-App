@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import hand from "../images/protest (2).png";
+import run from "../images/athletics (2).png";
 import ScaleLoader from "react-spinners/ScaleLoader";
 
 const Loader = () => {
@@ -16,7 +16,7 @@ const Loader = () => {
   return (
     <div className="loader">
       <div className="hand-loader animate__animated animate__fadeInUp">
-        <img src={hand} alt="" />
+        <img src={run} alt="" />
       </div>
       <h1 className="animate__animated animate__fadeInUp font-bold text-5xl">
         Power Hour

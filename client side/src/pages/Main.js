@@ -1,5 +1,5 @@
 import React from "react";
-import man from "../images/man.png";
+// import man from "../images/man.png";
 
 const Main = () => {
   return (
@@ -15,7 +15,7 @@ const Main = () => {
           pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
           culpa qui officia deserunt mollit anim id est laborum."
         </p> */}
-        <img src={man} alt="" />
+        {/* <img src={man} alt="" /> */}
       </div>
     </div>
   );

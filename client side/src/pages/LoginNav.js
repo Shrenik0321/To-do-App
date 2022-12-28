@@ -1,8 +1,12 @@
-import React from "react";
-import hand from "../images/protest (2).png";
+import React, { useState } from "react";
+import run from "../images/athletics (2).png";
+import tog from "../images/menu.png";
+import cancel from "../images/x.png";
 import { Link } from "react-router-dom";
 
 const LoginNav = ({ setAddTask, setToggle }) => {
+  const [menu, setMenu] = useState(false);
+
   const handleAddTask = (e) => {
     if (e.target.click) {
       setAddTask((prev) => !prev);
@@ -13,10 +17,10 @@ const LoginNav = ({ setAddTask, setToggle }) => {
   return (
     <nav className="p-5 md:flex md:items-center md:justify-between">
       <div className="flex justify-between items-center">
-        <div className="hand">
-          <img src={hand} alt="" />
+        <div className="hand ml-12">
+          <img src={run} alt="" />
         </div>
-        <span className="text-5xl cursor-pointer text-primary font-bold">
+        <span className="text-5xl cursor-pointer text-primary font-bold ml-3">
           Power Hour
         </span>
         <span className="text-3xl cursor-pointer mx-2 md:hidden block">

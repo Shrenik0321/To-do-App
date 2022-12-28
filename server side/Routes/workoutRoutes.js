@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const workoutController = require("../Controllers/workoutControllers");
 
-router.get("/home", workoutController.main);
+router.get("/home/:id", workoutController.main);
 
 router.get("/edit/:id", workoutController.editWorkouts);
 

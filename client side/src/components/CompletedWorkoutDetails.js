@@ -2,6 +2,8 @@ import Axios from "../axios.js";
 import logo from "../images/muscle (3).png";
 import deleteBtn from "../images/delete.png";
 
+let author = sessionStorage.getItem("Author");
+
 const CompletedWorkoutDetails = ({ workout }) => {
   const handleCheck = async (e, id) => {
     window.location.href = "/home";
@@ -34,7 +36,7 @@ const CompletedWorkoutDetails = ({ workout }) => {
 
   return (
     <div className="workout-details bg-slate-900 rounded-md">
-      <span>Author:</span>
+      <span>Author: {author}</span>
       <div className="logo">
         <img src={logo} alt="" />
       </div>

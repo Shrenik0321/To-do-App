@@ -2,7 +2,8 @@ const con = require("../Models/workoutModels");
 const bcrypt = require("bcrypt");
 
 const main = async (req, res) => {
-  let sql = `SELECT id,workout, loads, reps, status FROM workout_tb`;
+  let userId = req.params.id;
+  let sql = "SELECT * FROM workout_tb WHERE user_id=" + userId;
   con.query(sql, (err, result) => {
     if (err) {
       return res.send(err);
@@ -13,11 +14,14 @@ const main = async (req, res) => {
 };
 
 const addWorkouts = async (req, res) => {
+  const userId = req.body.userId;
+  console.log(userId);
   const workout = req.body.title;
   const load = req.body.load;
   const reps = req.body.reps;
-  let sql = "INSERT INTO workout_tb (workout, loads, reps, status) VALUES ?";
-  values = [[workout, load, reps, "0"]];
+  let sql =
+    "INSERT INTO workout_tb (user_id, workout, loads, reps, status) VALUES ?";
+  values = [[userId, workout, load, reps, "0"]];
   con.query(sql, [values], (err, result) => {
     if (err) {
       return res.send(err);
@@ -142,22 +146,30 @@ const register = async (req, res) => {
 
 const updateWorkout = async (req, res) => {
   // **** Issue to be clarified  **** //
-  // let workout = req.body.title;
-  // let reps = req.body.reps;
-  // let load = req.body.load;
-  // let id = req.body.id;
-  // con.connect(function (err) {
-  //   if (err) throw err;
-  //   let sql = `UPDATE workout_tb SET
-  //   workout = '${workout}',
-  //   reps='${reps}',
-  //   load ='${load}'
-  //   WHERE id = '${id}'`;
-  //   con.query(sql, function (err, result) {
-  //     if (err) throw err;
-  //     console.log(result.affectedRows + " record(s) updated");
-  //   });
-  // });
+  let workout = req.body.title;
+  let reps = req.body.reps;
+  let load = req.body.load;
+  let id = req.body.id;
+  let sql1 =
+    "UPDATE workout_tb SET workout = '" + workout + "' WHERE id = '" + id + "'";
+  con.query(sql1, function (err, result) {
+    if (err) throw err;
+    console.log(result.affectedRows + " record(s) updated");
+  });
+
+  let sql2 =
+    "UPDATE workout_tb SET loads = '" + load + "' WHERE id = '" + id + "'";
+  con.query(sql2, function (err, result) {
+    if (err) throw err;
+    console.log(result.affectedRows + " record(s) updated");
+  });
+
+  let sql3 =
+    "UPDATE workout_tb SET reps = '" + reps + "' WHERE id = '" + id + "'";
+  con.query(sql3, function (err, result) {
+    if (err) throw err;
+    console.log(result.affectedRows + " record(s) updated");
+  });
 };
 
 module.exports = {

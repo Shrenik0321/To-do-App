@@ -13,13 +13,13 @@ const Home = () => {
   const [editTask, setEditTask] = useState(false);
   const [editID, setEditID] = useState("");
   const [toggle, setToggle] = useState("");
-
+  let userId = sessionStorage.getItem("userId");
   // We use useEffect because useEffect will be run at the very start and any time the dependency is changed. Therefore, all the data
-  //   will be fetched at the very start.
+  // will be fetched at the very start.
   useEffect(() => {
     const fetchAllWorkout = async () => {
       try {
-        const response = await Axios.get("/home");
+        const response = await Axios.get("/home/" + userId);
         setWorkout(response.data);
       } catch (err) {
         console.log(err);
@@ -27,6 +27,7 @@ const Home = () => {
     };
     fetchAllWorkout();
   }, []);
+
   return (
     <div className="home">
       <LoginNav setAddTask={setAddTask} setToggle={setToggle} />

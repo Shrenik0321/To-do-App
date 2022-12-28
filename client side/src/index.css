@@ -4,19 +4,24 @@
 @tailwind components;
 @tailwind utilities;
 
-/* layout */
-:root {
-  --primary: #f37a24;
-  --error: #e7195a;
-}
-
-body {
-  height: 150%;
+body,
+html {
+  height: 100vh;
+  width: 100%;
   margin: 0;
   padding: 0;
-  background: linear-gradient(to right, #312e81, #18181b);
+  background: linear-gradient(to right, #6366f1, #a855f7, #ec4899);
   background-repeat: no-repeat;
   font-family: "Poppins";
+}
+
+/* layout */
+:root {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to right, #6366f1, #a855f7, #ec4899);
+  --primary: #f37a24;
+  --error: #e7195a;
 }
 
 /* Navigation bar */
@@ -147,7 +152,7 @@ header a {
 .workout-details > span {
   position: absolute;
   color: #f37a24;
-  right: 150px;
+  right: 30px;
   top: 20px;
 }
 
@@ -257,7 +262,7 @@ header a {
 } */
 
 .form-container {
-  padding: 2px 2px 0px 2px;
+  padding: 2px 2px 2px 2px;
 }
 
 /* Workout form */
@@ -265,16 +270,18 @@ header a {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 30px;
+  margin-bottom: 50px;
 }
 
-.card {
+.card-w-form {
+  color: #f37a24;
   width: 700px;
-  height: 700px;
-  padding: 15px;
+  height: 520px;
+  padding: 30px;
 }
 
 .w-form-label {
+  color: var(--primary);
   font-size: 1.02rem;
 }
 
@@ -459,4 +466,11 @@ img {
   position: absolute;
   color: white;
   right: 450px;
+}
+
+.card-e-form {
+  color: #f37a24;
+  width: 700px;
+  height: 535px;
+  padding: 30px;
 }

@@ -27,7 +27,6 @@ const EditForm = ({ editID }) => {
     const fetchWorkoutToEdit = async (editID) => {
       try {
         const response = await Axios.get("/edit/" + editID);
-        console.log(response.data[0]);
         setEditWorkout(response.data[0]);
         setTitle(response.data[0]["workout"]);
         setLoad(response.data[0]["loads"]);
@@ -41,14 +40,12 @@ const EditForm = ({ editID }) => {
 
   return (
     <div className="workout-form animate__animated animate__fadeInDown">
-      <div className="card">
+      <div className="card-e-form border-solid border-4 rounded-md">
         <div className="form-container">
-          <form className="formClass">
+          <form className="formClass text-2xl font-bold">
             <h2>Edit Workout</h2>
 
-            <label className="w-form-label" style={{ "margin-right": "580px" }}>
-              Exercise Title:
-            </label>
+            <label className="w-form-label">Exercise Title:</label>
             <input
               type="text"
               value={title}
@@ -56,9 +53,7 @@ const EditForm = ({ editID }) => {
               id="title"
             />
 
-            <label className="w-form-label" style={{ "margin-right": "580px" }}>
-              Load (in kg):
-            </label>
+            <label className="w-form-label">Load (in kg):</label>
             <input
               type="text"
               value={load}
@@ -66,17 +61,19 @@ const EditForm = ({ editID }) => {
               id="load"
             />
 
-            <label className="w-form-label" style={{ "margin-right": "550px" }}>
-              Number of Reps:
-            </label>
+            <label className="w-form-label">Number of Reps:</label>
             <input
               type="text"
               value={reps}
               onChange={(e) => setReps(e.target.value)}
               id="reps"
             />
-            <button type="submit" onClick={handleSubmit}>
-              Add Workout
+            <button
+              className="font-bold text-xl bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500 rounded-md"
+              type="submit"
+              onClick={handleSubmit}
+            >
+              Update Workout
             </button>
           </form>
         </div>
